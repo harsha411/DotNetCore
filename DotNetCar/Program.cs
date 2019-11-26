@@ -41,22 +41,116 @@ namespace DotNetCar
             //Console.ReadKey();
 
             //------------------------Fourth Example
-            bool exited = false;
+            //bool exited = false;
 
-            while (!exited)
+            //while (!exited)
+            //{
+            //    Console.WriteLine("Do you like this cource so far? Please type yes or no.");
+            //    Console.WriteLine("Type exit to exit the program.");
+            //    string answer = Console.ReadLine();
+
+            //    if (answer == "yes")
+            //        Console.WriteLine("I'm glad to have you on my course!");
+            //    else if (answer == "no")
+            //        Console.WriteLine("Wrong answer!");
+            //    else if (answer == "exit")
+            //        exited = true;
+            //    else
+            //        Console.WriteLine("I don't know what you mean by that!");
+            //}
+
+
+
+            //--------------Sixth Example
+
+            double? firstNumber = null;
+            double? secondNumber = null;
+            double? answer = null;
+            string calcOperator = null;
+
+            while (true)
             {
-                Console.WriteLine("Do you like this cource so far? Please type yes or no.");
-                Console.WriteLine("Type exit to exit the program.");
-                string answer = Console.ReadLine();
+                try
+                {
+                    Console.Write("Type exit to quit the program at any time. ");
 
-                if (answer == "yes")
-                    Console.WriteLine("I'm glad to have you on my course!");
-                else if (answer == "no")
-                    Console.WriteLine("Wrong answer!");
-                else if (answer == "exit")
-                    exited = true;
-                else
-                    Console.WriteLine("I don't know what you mean by that!");
+                    if (firstNumber == null)
+                    {
+                        Console.WriteLine("Please type your first number.");
+
+                        string consoleInput = Console.ReadLine();
+
+                        if (consoleInput == "exit")
+                            break;
+
+                        firstNumber = double.Parse(consoleInput);
+
+                    }
+                    else if (calcOperator == null)
+                    {
+                        Console.WriteLine("Please type one of the following operators:");
+                        Console.WriteLine("+, -, *, /");
+
+                        string consoleInput = Console.ReadLine();
+
+                        if (consoleInput == "exit")
+                            break;
+
+                        switch (consoleInput)
+                        {
+                            case "+":
+                            case "-":
+                            case "*":
+                            case "/":
+                                calcOperator = consoleInput;
+                                break;
+                            default:
+                                throw new Exception("Operator not recognised");
+                        }
+                    }
+                    else if (secondNumber == null)
+                    {
+                        Console.WriteLine("Please type your second number");
+
+                        string consoleInput = Console.ReadLine();
+
+                        if (consoleInput == "exit")
+                            break;
+
+                        secondNumber = double.Parse(consoleInput);
+
+                        switch (calcOperator)
+                        {
+                            case "+":
+                                answer = firstNumber + secondNumber;
+                                break;
+                            case "-":
+                                answer = firstNumber - secondNumber;
+                                break;
+                            case "*":
+                                answer = firstNumber * secondNumber;
+                                break;
+                            case "/":
+                                answer = firstNumber / secondNumber;
+                                break;
+                        }
+
+                        Console.WriteLine("The answer is " + answer);
+                        Console.WriteLine("Press ESC to exit the program. Press any other key to continue.");
+
+                        if (Console.ReadKey().Key == ConsoleKey.Escape)
+                            break;
+
+                        firstNumber = null;
+                        secondNumber = null;
+                        answer = null;
+                        calcOperator = null;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
         }
     }
