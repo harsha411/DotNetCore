@@ -59,44 +59,121 @@ namespace DotNetCar
             //        Console.WriteLine("I don't know what you mean by that!");
             //}
 
-            //------------------------fifth Example
-            //Car myCar = new Car();
+            //Fifth example
+            //bool exited = false;
+            //ICar myCar = null;
 
-            //Console.WriteLine("The make of my car is " + myCar.GetMake());
-            //Console.WriteLine("The top speed before modification was " + myCar.GetTopSpeed());
-            //myCar.AdjustTopSpeed(200);
-            //Console.WriteLine("The top speed after modification is " + myCar.GetTopSpeed());
-            //Console.WriteLine("The model of the car is " + myCar.Model);
-            //myCar.Model = "Ursus";
-            //Console.WriteLine("Now, the model of the car is " + myCar.Model);
-            //Console.WriteLine("Press any key to exit");
-            //Console.ReadKey();
+            //while (!exited)
+            //{
+            //    Console.WriteLine("Please type either race or family for the type of car you want");
+            //    Console.WriteLine("Type exit to quit the program");
 
-            //------------------------Sixth Example
-            bool exited = false;
-            ICar myCar = null;
+            //    string input = Console.ReadLine();
 
-            while (!exited)
+            //    if (input == "race")
+            //        myCar = new RaceCar();
+            //    else if (input == "family")
+            //        myCar = new FamilyCar();
+            //    else if (input == "exit")
+            //        exited = true;
+            //    else
+            //        continue;
+
+            //    if (!exited)
+            //    {
+            //        Console.WriteLine("The type of the car is " + myCar.GetType());
+            //        Console.WriteLine("The model of my car is " + myCar.Model);
+            //    }
+            //}
+
+
+            //--------------Sixth Example
+
+            double? firstNumber = null;
+            double? secondNumber = null;
+            double? answer = null;
+            string calcOperator = null;
+
+            while (true)
             {
-                Console.WriteLine("Please type either race or family for the type of car you want");
-                Console.WriteLine("Type exit to quit the program");
-
-                string input = Console.ReadLine();
-
-                if (input == "race")
-                    myCar = new RaceCar();
-                else if (input == "family")
-                    myCar = new FamilyCar();
-                else if (input == "exit")
-                    exited = true;
-                else
-                    continue;
-
-                if (!exited)
+                try
                 {
-                    Console.WriteLine("The type of the car is " + myCar.GetType());
-                    Console.WriteLine("The model of my car is " + myCar.Model);
+                    Console.Write("Type exit to quit the program at any time. ");
+
+                    if (firstNumber == null)
+                    {
+                        Console.WriteLine("Please type your first number.");
+
+                        string consoleInput = Console.ReadLine();
+
+                        if (consoleInput == "exit")
+                            break;
+
+                        firstNumber = double.Parse(consoleInput);
+
+                    }
+                    else if (calcOperator == null)
+                    {
+                        Console.WriteLine("Please type one of the following operators:");
+                        Console.WriteLine("+, -, *, /");
+
+                        string consoleInput = Console.ReadLine();
+
+                        if (consoleInput == "exit")
+                            break;
+
+                        switch (consoleInput)
+                        {
+                            case "+":
+                            case "-":
+                            case "*":
+                            case "/":
+                                calcOperator = consoleInput;
+                                break;
+                            default:
+                                throw new Exception("Operator not recognised");
+                        }
+                    }
+                    else if (secondNumber == null)
+                    {
+                        Console.WriteLine("Please type your second number");
+
+                        string consoleInput = Console.ReadLine();
+
+                        if (consoleInput == "exit")
+                            break;
+
+                        secondNumber = double.Parse(consoleInput);
+
+                        switch (calcOperator)
+                        {
+                            case "+":
+                                answer = firstNumber + secondNumber;
+                                break;
+                            case "-":
+                                answer = firstNumber - secondNumber;
+                                break;
+                            case "*":
+                                answer = firstNumber * secondNumber;
+                                break;
+                            case "/":
+                                answer = firstNumber / secondNumber;
+                                break;
+                        }
+
+                        Console.WriteLine("The answer is " + answer);
+                        Console.WriteLine("Press ESC to exit the program. Press any other key to continue.");
+
+                        if (Console.ReadKey().Key == ConsoleKey.Escape)
+                            break;
+
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
                 }
             }
+        }
     }
 }

@@ -1,4 +1,3 @@
-D:\YESO\Courses\DotNetCore\DotNetCar\obj\Debug\netcoreapp2.1\DotNetCar.csproj.CoreCompileInputs.cache
 D:\YESO\Courses\DotNetCore\DotNetCar\obj\Debug\netcoreapp2.1\DotNetCar.AssemblyInfoInputs.cache
 D:\YESO\Courses\DotNetCore\DotNetCar\obj\Debug\netcoreapp2.1\DotNetCar.AssemblyInfo.cs
 D:\YESO\Courses\DotNetCore\DotNetCar\bin\Debug\netcoreapp2.1\DotNetCar.deps.json
@@ -8,4 +7,3 @@ D:\YESO\Courses\DotNetCore\DotNetCar\bin\Debug\netcoreapp2.1\DotNetCar.dll
 D:\YESO\Courses\DotNetCore\DotNetCar\bin\Debug\netcoreapp2.1\DotNetCar.pdb
 D:\YESO\Courses\DotNetCore\DotNetCar\obj\Debug\netcoreapp2.1\DotNetCar.dll
 D:\YESO\Courses\DotNetCore\DotNetCar\obj\Debug\netcoreapp2.1\DotNetCar.pdb
-D:\YESO\Courses\DotNetCore\DotNetCar\obj\Debug\netcoreapp2.1\DotNetCar.csprojAssemblyReference.cache
