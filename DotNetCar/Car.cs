@@ -4,18 +4,56 @@ using System.Text;
 
 namespace DotNetCar
 {
-    class Car
+    //First implementation
+    //class Car
+    //{
+    //    string make = "Lamborghini";
+    //    string model = "Diablo";
+
+    //    int topSpeed = 100;
+
+    //    DateTime dateCreated = DateTime.Now;
+
+    //    public string GetMake()
+    //    {
+    //        return $"{make} - {model}";
+    //    }
+
+    //    public int GetTopSpeed()
+    //    {
+    //        return topSpeed;
+    //    }
+
+    //    public void AdjustTopSpeed(int newTopSpeed)
+    //    {
+    //        topSpeed = newTopSpeed;
+    //    }
+    //}
+
+    //Second implementation
+    public class Car
     {
-        string make = "Lamborghini";
-        string model = "Diablo";
+        private string make = "Lamborgini";
+        private string model = "Diablo";
+        private int topSpeed = 100;
+        private DateTime dateCreated = DateTime.Now;
 
-        int topSpeed = 100;
+        public virtual string Model
+        {
+            get
+            {
+                return model;
+            }
 
-        DateTime dateCreated = DateTime.Now;
+            set
+            {
+                model = value;
+            }
+        }
 
         public string GetMake()
         {
-            return $"{make} - {model}";
+            return make;
         }
 
         public int GetTopSpeed()
